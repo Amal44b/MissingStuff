@@ -11,7 +11,8 @@ import SwiftUI
 struct MissingStuffApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainPage()
         }
+        .modelContainer(for: ListModel.self)
     }
 }
