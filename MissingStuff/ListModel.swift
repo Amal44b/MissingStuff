@@ -16,12 +16,13 @@ class ListModel{
     var items : [String]
     var location : String
     var subLocation : String
+    var isCompleted = Bool()
     
-    
-    init(name: String, items: [String], location: String, subLocation: String ) {
+    init(name: String, items: [String], location: String, subLocation: String, isCompleted: Bool ) {
         self.name = name
         self.items = items
         self.location = location
         self.subLocation = subLocation
+        self.isCompleted = isCompleted
     }
 }

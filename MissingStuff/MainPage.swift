@@ -13,13 +13,22 @@ struct MainPage: View {
     @State var path = [ListModel]()
     @State var list: [ListModel] = []
     @Query var listQuery: [ListModel]
+    @State private var searchText = ""
     
+    
+    var filteredList: [ListModel] {
+        if searchText.isEmpty{
+            list
+        } else{
+            list.filter{ $0.name.localizedStandardContains(searchText)}
+        }
+    }
     var body: some View {
         NavigationStack(path: $path){
             
             List{
-                ForEach(list, id: \.self) { subList in
-                    NavigationLink(destination: CheckList(/*list: subList*/)){
+                ForEach(filteredList, id: \.self) { subList in
+                    NavigationLink(destination: CheckList(/*list: subList*/ listModel: subList)){
                         VStack{
                             Text(subList.name)
                                 .font(.headline)
@@ -28,12 +37,12 @@ struct MainPage: View {
                                 
                         }
                     }
-                }
+                }.onDelete(perform: delete)
             }
             .navigationTitle("My Lists")
             .navigationDestination(for: ListModel.self) { subList in
                 CreateList(listCreate: $list)
-            }
+            }.searchable(text: $searchText , prompt: "Search")
             .toolbar{
                 Button(action: {
                     addList()
@@ -46,12 +55,14 @@ struct MainPage: View {
         }
     }
         func addList(){
-            let list = ListModel(name: "", items: [], location: "", subLocation: "")
+            let list = ListModel(name: "", items: [], location: "", subLocation: "", isCompleted: false)
             modelContext.insert(list)
             path.append(list)
         
     }
-    
+    func delete(indexSet: IndexSet) {
+        list.remove(atOffsets: indexSet)
+}
 }
 #Preview {
     MainPage()

@@ -148,7 +148,7 @@ struct CreateList: View {
                                        return
                                    }
                     
-                    listCreate.append(ListModel(name: listName, items: Array(selectedItems), location: address, subLocation: subAddress))
+                    listCreate.append(ListModel(name: listName, items: Array(selectedItems), location: address, subLocation: subAddress, isCompleted: false))
                           
                     
                     presentationMode.wrappedValue.dismiss()
