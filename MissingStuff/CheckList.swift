@@ -10,19 +10,19 @@ import SwiftData
 
 struct CheckList: View {
     @State var isCompleted:[String: Bool] = [:]
-    var listModel: ListModel
+    var listCheck: ListModel
     
     var body: some View {
         ZStack{
 //            Color.darkGray.ignoresSafeArea()
             VStack/*(alignment: .leading)*/{
                
-                Text(listModel.name)
+                Text(listCheck.name)
                     .frame(alignment: .center)
                     .font(.title)
                 
                 List {
-                    ForEach(listModel.items, id: \.self) { item in
+                    ForEach(listCheck.items, id: \.self) { item in
                         HStack {
                             
                             
@@ -48,6 +48,6 @@ struct CheckList_Previews: PreviewProvider {
     static var previews: some View {
         let items = ["Item 1", "Item 2", "Item 3"]
         let listModel = ListModel(name: "List", items: items, location: "Location", subLocation: "SubLocation", isCompleted: false)
-        return CheckList(listModel: listModel)
+        return CheckList(listCheck: listModel)
     }
 }

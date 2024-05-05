@@ -9,26 +9,25 @@ import SwiftUI
 import SwiftData
 
 struct MainPage: View {
-    @Environment(\.modelContext) var modelContext
-    @State var path = [ListModel]()
-    @State var list: [ListModel] = []
+    
     @Query var listQuery: [ListModel]
+    @State private var isActive = false
     @State private var searchText = ""
     
     
-    var filteredList: [ListModel] {
-        if searchText.isEmpty{
-            list
-        } else{
-            list.filter{ $0.name.localizedStandardContains(searchText)}
-        }
-    }
+//    var filteredList: [ListModel] {
+//        if searchText.isEmpty{
+//            list
+//        } else{
+//            list.filter{ $0.name.localizedStandardContains(searchText)}
+//        }
+//    }
     var body: some View {
-        NavigationStack(path: $path){
+        NavigationStack{
             
             List{
-                ForEach(filteredList, id: \.self) { subList in
-                    NavigationLink(destination: CheckList(/*list: subList*/ listModel: subList)){
+                ForEach(listQuery) { subList in
+                    NavigationLink(destination: CheckList(listCheck: subList)){
                         VStack{
                             Text(subList.name)
                                 .font(.headline)
@@ -37,32 +36,30 @@ struct MainPage: View {
                                 
                         }
                     }
-                }.onDelete(perform: delete)
+                }/*.onDelete(perform: delete)*/
             }
             .navigationTitle("My Lists")
-            .navigationDestination(for: ListModel.self) { subList in
-                CreateList(listCreate: $list)
-            }.searchable(text: $searchText , prompt: "Search")
-            .toolbar{
-                Button(action: {
-                    addList()
-                }) {
-                    Image(systemName: "plus")
-                        
-                        
+            .toolbar {
+                              ToolbarItem(placement: .navigationBarTrailing) {
+                                  Button(action: {
+                                      isActive = true
+                                  }) {
+                                      Image(systemName: "plus")
+                                  }
+                              }
+                          }
+            .background(
+                NavigationLink(destination: CreateList(/*listCreate: $list*/), isActive: $isActive) {
+                    EmptyView()
                 }
-            }
+            )
+
         }
     }
-        func addList(){
-            let list = ListModel(name: "", items: [], location: "", subLocation: "", isCompleted: false)
-            modelContext.insert(list)
-            path.append(list)
-        
-    }
-    func delete(indexSet: IndexSet) {
-        list.remove(atOffsets: indexSet)
-}
+
+//    func delete(indexSet: IndexSet) {
+//        list.remove(atOffsets: indexSet)
+//}
 }
 #Preview {
     MainPage()

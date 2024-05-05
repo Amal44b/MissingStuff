@@ -18,7 +18,7 @@ class ListModel{
     var subLocation : String
     var isCompleted = Bool()
     
-    init(name: String, items: [String], location: String, subLocation: String, isCompleted: Bool ) {
+    init(name: String = "", items: [String] = [] , location: String = "", subLocation: String = "", isCompleted: Bool = false) {
         self.name = name
         self.items = items
         self.location = location

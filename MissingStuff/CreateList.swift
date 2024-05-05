@@ -18,19 +18,12 @@ struct CreateList: View {
     @State var items = ["Keys" , "Wallet" , "Phone" , "Glasses" , "HeadPhons" , "Watchs"]
     @State var showAlert = false
     @State var enteredItem = ""
-    @State var selectedItems: Set<String> = []
-    @State var listName = ""
-    @State var address = ""
-    @State var subAddress = ""
-    
-//    @State var listModel: ListModel?
     
     @State var showIncompleteDataAlert = false
-    
-    @Binding var listCreate: [ListModel]
-    
     @Environment(\.presentationMode) var presentationMode
-    
+    @State var listCreate = ListModel()
+    @Environment(\.modelContext) var modelContext
+
     var body: some View {
         ZStack{
             Color.darkGray.ignoresSafeArea()
@@ -39,9 +32,7 @@ struct CreateList: View {
             
             VStack(alignment:.leading){
                 
-//                NavigationLink(destination: ContentView()){
-//                    Text("Cancel").foregroundColor(.green).padding(.bottom)
-//                }
+
                 
                 HStack{
                     Text("List Name")
@@ -55,7 +46,7 @@ struct CreateList: View {
                         .frame(width: 360 , height: 32.19)
                         .cornerRadius(10)
                         .foregroundColor(.lightGray)
-                    TextField("" , text: $listName)
+                    TextField("" , text: $listCreate.name)
                         .foregroundColor(.white)
                         .padding()
                 }
@@ -101,12 +92,12 @@ struct CreateList: View {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 5)
                                     .frame(width: 95, height: 70)
-                                    .foregroundColor(selectedItems.contains(item) ? .green : .lightGray)
+                                    .foregroundColor(listCreate.items.contains(item) ? .green : .lightGray)
                                     .onTapGesture {
-                                        if selectedItems.contains(item) {
-                                            selectedItems.remove(item)
+                                        if listCreate.items.contains(item) {
+//                                            listCreate.items.remove(item)
                                         } else {
-                                            selectedItems.insert(item)
+                                            listCreate.items.append(item)
                                         }
                                     }
                                 Text(item)
@@ -127,29 +118,29 @@ struct CreateList: View {
                     
                 }
                 
-                MapView(address: self.$address, subAddress: self.$subAddress).edgesIgnoringSafeArea(.all)
+                MapView(address: self.$listCreate.location, subAddress: self.$listCreate.subLocation).edgesIgnoringSafeArea(.all)
                     .frame(height: 300)
                     .cornerRadius(10)
                     .padding(.top, 10)
                 
-                if self.address != "" {
+                if self.listCreate.location != "" {
                     HStack{
-                        Text(self.address)
+                        Text(self.listCreate.location)
                             .foregroundColor(.white)
                         
-                        Text(self.subAddress)
+                        Text(self.listCreate.subLocation)
                             .foregroundColor(.white)
                     }
                 }
                 Button(action:{
                     
-                    if listName.isEmpty || selectedItems.isEmpty || subAddress.isEmpty {
+                    if listCreate.name.isEmpty || listCreate.items.isEmpty || listCreate.subLocation.isEmpty {
                                        showIncompleteDataAlert = true
                                        return
                                    }
                     
-                    listCreate.append(ListModel(name: listName, items: Array(selectedItems), location: address, subLocation: subAddress, isCompleted: false))
-                          
+                    modelContext.insert(listCreate)
+                    
                     
                     presentationMode.wrappedValue.dismiss()
                 }){
@@ -265,7 +256,7 @@ class Coordinator: NSObject, MKMapViewDelegate {
 }
 
 
-
-//#Preview {
-//    CreateList()
-//}
+#Preview {
+    CreateList()
+        .modelContainer(for: ListModel.self)
+}
