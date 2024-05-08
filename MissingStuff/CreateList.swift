@@ -10,9 +10,6 @@ import MapKit
 import SwiftData
 
 
-
-
-
 struct CreateList: View {
     
     @State var items = ["Keys" , "Wallet" , "Phone" , "Glasses" , "HeadPhons" , "Watchs"]
@@ -36,7 +33,7 @@ struct CreateList: View {
                 
                 HStack{
                     Text("List Name")
-                        .foregroundColor(.white)
+//                        .foregroundColor(.white)
                     Text("*")
                         .foregroundColor(.red)
                 }
@@ -47,7 +44,7 @@ struct CreateList: View {
                         .cornerRadius(10)
                         .foregroundColor(.lightGray)
                     TextField("" , text: $listCreate.name)
-                        .foregroundColor(.white)
+//                        .foregroundColor(.white)
                         .padding()
                 }
                 
@@ -55,7 +52,7 @@ struct CreateList: View {
                 HStack{
                     
                     Text("Pick an item or add it")
-                        .foregroundColor(.white)
+//                        .foregroundColor(.white)
                     Text("*")
                         .foregroundColor(.red)
                     
@@ -67,7 +64,7 @@ struct CreateList: View {
                             Image(systemName: "plus.app.fill")
                                 .resizable()
                                 .frame(width: 22 , height: 22)
-                                .foregroundColor(.yellow)
+                                .foregroundColor(.ourGreen)
                                 .padding(.leading, 150.0)
                         }
                         .alert("Add Item" , isPresented: $showAlert , actions: {
@@ -92,7 +89,8 @@ struct CreateList: View {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 5)
                                     .frame(width: 95, height: 70)
-                                    .foregroundColor(listCreate.items.contains(item) ? .green : .lightGray)
+                                    .foregroundColor(listCreate.items.contains(item) ? .ourGreen : .ourWhite)
+                                    .border(Color.ourGreen)
                                     .onTapGesture {
                                         if listCreate.items.contains(item) {
 //                                            listCreate.items.remove(item)
@@ -101,7 +99,7 @@ struct CreateList: View {
                                         }
                                     }
                                 Text(item)
-                                    .foregroundColor(.white)
+//                                    .foregroundColor(.white)
                             }
                         }
                     }
@@ -111,7 +109,7 @@ struct CreateList: View {
                 
                 HStack{
                     Text("List Location")
-                        .foregroundColor(.white)
+//                        .foregroundColor(.white)
                     Text("*")
                         .foregroundColor(.red)
                     
@@ -126,10 +124,10 @@ struct CreateList: View {
                 if self.listCreate.location != "" {
                     HStack{
                         Text(self.listCreate.location)
-                            .foregroundColor(.white)
+//                            .foregroundColor(.white)
                         
                         Text(self.listCreate.subLocation)
-                            .foregroundColor(.white)
+//                            .foregroundColor(.white)
                     }
                 }
                 Button(action:{
@@ -148,10 +146,10 @@ struct CreateList: View {
                         Rectangle()
                             .frame(width: 360 , height: 58)
                             .cornerRadius(10)
-                            .foregroundColor(.lightGray)
+                            .foregroundColor(.ourGreen)
                         
                         Text("Create")
-                            .foregroundColor(.ourYellow)
+                            .foregroundColor(.white)
                     }
                 }
             }.padding()
@@ -256,7 +254,7 @@ class Coordinator: NSObject, MKMapViewDelegate {
 }
 
 
-#Preview {
-    CreateList()
-        .modelContainer(for: ListModel.self)
-}
+//#Preview {
+//    CreateList()
+//        .modelContainer(for: ListModel.self)
+//}

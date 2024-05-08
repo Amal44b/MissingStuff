@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct MissingStuffApp: App {
+
+    
     var body: some Scene {
         WindowGroup {
             MainPage()
