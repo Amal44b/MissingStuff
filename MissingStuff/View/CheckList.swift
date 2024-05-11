@@ -68,7 +68,7 @@ struct CheckList: View {
 struct CheckList_Previews: PreviewProvider {
     static var previews: some View {
         let items = ["Item 1", "Item 2", "Item 3"]
-        let listModel = ListModel(name: "List", items: items, location: "Location", subLocation: "SubLocation", isCompleted: false)
+        let listModel = ListModel(name: "List", items: items, latitude: 0.0 , longitude: 0.0 , isCompleted: false)
         return CheckList(listCheck: listModel)
     }
 }

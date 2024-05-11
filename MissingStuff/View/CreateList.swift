@@ -1,45 +1,43 @@
 //
-//  UpdateList.swift
+//  CreateList.swift
 //  MissingStuff
 //
-//  Created by shaden  on 26/10/1445 AH.
+//  Created by Maryam Mohammad on 20/10/1445 AH.
 //
 
-
 import SwiftUI
-import SwiftData
 import MapKit
+import SwiftData
 
-struct UpdateList: View {
+
+
+
+
+struct CreateList: View {
     
-    @State var items2 = ["Keys" , "Wallet" , "Phone" , "Glasses" , "HeadPhons" , "Watchs"]
+    @State var items = ["Keys" , "Wallet" , "Phone" , "Glasses" , "HeadPhons" , "Watchs"]
     @State var showAlert = false
     @State var enteredItem = ""
     
-    @State var selectedItems: Set<String> = []
-    @State var listName = ""
-    @State var address = ""
-    @State var subAddress = ""
-    
-    @State var showConfirmationAlert = false
     @State var showIncompleteDataAlert = false
-    @State var listUpdate: ListModel
     @Environment(\.presentationMode) var presentationMode
+    
+    @State var listCreate = ListModel()
     @Environment(\.modelContext) var modelContext
 
-
-    
-    
+    // Binding for location name
+    @State private var locationName = ""
     
     var body: some View {
         ZStack{
             Color.darkGray.ignoresSafeArea()
+            Text("")
+                .navigationTitle("Add List").foregroundColor(.white)
             
             VStack(alignment:.leading){
-                
                 HStack{
                     Text("List Name")
-//                        .foregroundColor(.white)
+                        .foregroundColor(.white)
                     Text("*")
                         .foregroundColor(.red)
                 }
@@ -48,18 +46,16 @@ struct UpdateList: View {
                         .frame(width: 360 , height: 32.19)
                         .cornerRadius(10)
                         .foregroundColor(.lightGray)
-                    TextField("", text: $listUpdate.name)
-//                        .foregroundColor(.white)
+                    TextField("" , text: $listCreate.name)
+                        .foregroundColor(.white)
                         .padding()
-                       
                 }
                 
                 HStack{
                     Text("Pick an item or add it")
-//                        .foregroundColor(.white)
+                        .foregroundColor(.white)
                     Text("*")
                         .foregroundColor(.red)
-                    
                     VStack {
                         Button(action: {
                             showAlert = true
@@ -67,15 +63,15 @@ struct UpdateList: View {
                             Image(systemName: "plus.app.fill")
                                 .resizable()
                                 .frame(width: 22 , height: 22)
-                                .foregroundColor(.ourGreen)
+                                .foregroundColor(.yellow)
                                 .padding(.leading, 150.0)
                         }
                         .alert("Add Item" , isPresented: $showAlert , actions: {
-                            TextField("", text: $enteredItem)
+                            TextField("" , text: $enteredItem)
                             
                             Button("Add", action: {
                                 if !self.enteredItem.isEmpty {
-                                    self.items2.append(enteredItem)
+                                    self.items.append(self.enteredItem)
                                     self.enteredItem = ""
                                 }
                             })
@@ -88,21 +84,20 @@ struct UpdateList: View {
                 
                 ScrollView(.horizontal) {
                     LazyHStack {
-                        ForEach(items2.indices, id: \.self) { index in
+                        ForEach(items, id: \.self) { item in
                             ZStack {
                                 RoundedRectangle(cornerRadius: 5)
                                     .frame(width: 95, height: 70)
-                                    .foregroundColor(listUpdate.items.contains(items2[index]) ? .ourGreen : .ourWhite)
-                                    .border(Color.ourGreen)
+                                    .foregroundColor(listCreate.items.contains(item) ? .green : .lightGray)
                                     .onTapGesture {
-                                        if listUpdate.items.contains(items2[index]) {
-                                            listUpdate.items.removeAll(where: { $0 == items2[index] })
+                                        if let index = listCreate.items.firstIndex(of: item) {
+                                            listCreate.items.remove(at: index)
                                         } else {
-                                            listUpdate.items.append(items2[index])
+                                            listCreate.items.append(item)
                                         }
                                     }
-                                Text(items2[index])
-//                                    .foregroundColor(.white)
+                                Text(item)
+                                    .foregroundColor(.white)
                             }
                         }
                     }
@@ -112,55 +107,67 @@ struct UpdateList: View {
                 
                 HStack{
                     Text("List Location")
-//                        .foregroundColor(.white)
+                        .foregroundColor(.white)
                     Text("*")
                         .foregroundColor(.red)
                 }
                 
-                MapView(address: self.$listUpdate.location, subAddress: self.$listUpdate.subLocation).edgesIgnoringSafeArea(.all)
+                // Pass binding for location name
+                MapView(locationName: $locationName)
+                    .edgesIgnoringSafeArea(.all)
                     .frame(height: 300)
                     .cornerRadius(10)
                     .padding(.top, 10)
                 
-                if self.listUpdate.location != "" {
+                if self.locationName != "" {
                     HStack{
-                        Text(self.listUpdate.location)
-//                            .foregroundColor(.white)
-                        
-                        Text(self.listUpdate.subLocation)
-//                            .foregroundColor(.white)
+                        Text(self.locationName)
+                            .foregroundColor(.white)
                     }
                 }
                 
                 Button(action:{
-                        showConfirmationAlert = true
-                    
+                    if listCreate.name.isEmpty || listCreate.items.isEmpty || locationName.isEmpty {
+                        showIncompleteDataAlert = true
+                        return
+                    }
+                    // Use CLGeocoder to get location coordinates from location name
+                    let geocoder = CLGeocoder()
+                    geocoder.geocodeAddressString(locationName) { (placemarks, error) in
+                        guard let placemark = placemarks?.first else { return }
+                        let coordinate = placemark.location?.coordinate ?? kCLLocationCoordinate2DInvalid
+                        listCreate.latitude = coordinate.latitude
+                        listCreate.longitude = coordinate.longitude
+                        modelContext.insert(listCreate)
+                        
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 }){
                     ZStack{
                         Rectangle()
                             .frame(width: 360 , height: 58)
                             .cornerRadius(10)
-                            .foregroundColor(.ourGreen)
+                            .foregroundColor(.lightGray)
                         
-                        Text("Update")
-                            .foregroundColor(.white) // تغيير اللون إلى اللون الذي تفضله
+                        Text("Create")
+                            .foregroundColor(.ourYellow)
                     }
                 }
             }.padding()
-            .alert(isPresented:  $showConfirmationAlert) {
-                Alert(title: Text(""),
-                      message: Text("Are you sure you want to update?"),
-                      primaryButton: .default(Text("Yes"), action: {
-                                modelContext.insert(listUpdate)
-                                presentationMode.wrappedValue.dismiss()
-                }),
-                      secondaryButton: .destructive(Text("No"), action: {
-                    presentationMode.wrappedValue.dismiss()
-                }))
+            .alert(isPresented: $showIncompleteDataAlert) {
+                Alert(title: Text("Incomplete Data"), message: Text("Please complete all data fields."), dismissButton: .default(Text("OK")))
             }
-        }
-        .navigationTitle("Edit List") // تغيير عنوان الصفحة
+        }/*.modifier(KeyboardAwareModifier())*/
+        .navigationTitle("Add List")
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
+
+
+
+
+
+#Preview {
+    CreateList()
+}

@@ -11,7 +11,7 @@ import SwiftData
 struct MainPage: View {
     
     @Environment(\.modelContext) var modelContext
-    @Environment(\.presentationMode) var presentationMode
+//    @Environment(\.presentationMode) var presentationMode
 
     @Query var listQuery: [ListModel]
     
@@ -81,13 +81,22 @@ struct MainPage: View {
                     }
                 }
                 .background(
-                    NavigationLink(destination: CreateList(/*listCreate: $list*/), isActive: $isActive) {
+                    NavigationLink(destination: CreateList(), isActive: $isActive) {
                         EmptyView()
                     }
                 )
+                LocationTracker()
+
                 
             }.navigationBarBackButtonHidden(true)
             
+        }.onAppear {
+            let locationManager = CLLocationManager()
+            locationManager.requestWhenInUseAuthorization()
+            
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in
+                
+            }
         }
     }
     func deleteItem(at offsets: IndexSet) {
