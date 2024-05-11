@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import CoreLocation
 
 struct MainPage: View {
     
@@ -31,73 +32,79 @@ struct MainPage: View {
         }
     }
     var body: some View {
-        NavigationStack{
-            ZStack{
-                Color.darkGray.ignoresSafeArea()
-                List{
-                    ForEach(filteredList) { subList in
-                        NavigationLink(destination: CheckList(listCheck: subList)){
-                            VStack{
-                                Text(subList.name)
-                                    .font(.headline)
-                                    .foregroundStyle(.ourYellow)
-                                Text("\(subList.items.count) items")
-                                    .font(.subheadline)
-                                
-                            }.swipeActions(){
-                                Button {
-                                    selectedItem = subList
-                                } label: {
-                                    Text("Edit")
-                                }
-                                Button(role: .destructive) {
-                                    if let index = listQuery.firstIndex(of: subList) {
-                                        deleteItem(at: IndexSet([index]))
+        GeometryReader{_ in
+            NavigationStack{
+                ZStack{
+                    //                Color.darkGray.ignoresSafeArea()
+                    List{
+                        ForEach(filteredList) { subList in
+                            NavigationLink(destination: CheckList(listCheck: subList)){
+                                VStack{
+                                    Text(subList.name)
+                                        .font(.headline)
+                                        .foregroundStyle(.ourYellow)
+                                    Text("\(subList.items.count) items")
+                                        .font(.subheadline)
+                                        .opacity(5.0)
+                                    
+                                }.swipeActions(){
+                                    Button {
+                                        selectedItem = subList
+                                    } label: {
+                                        Text("Edit")
+                                            .foregroundColor(.red)
                                     }
-                                } label: {
-                                    Text("Delete")
+                                    Button(role: .destructive) {
+                                        if let index = listQuery.firstIndex(of: subList) {
+                                            deleteItem(at: IndexSet([index]))
+                                        }
+                                    } label: {
+                                        Text("Delete")
+                                    }
                                 }
                             }
                         }
+                        .onDelete(perform: deleteItem)
+                        
+                    }.sheet(item: $selectedItem){ selectedItem in
+                        NavigationView{
+                            UpdateList(listUpdate: selectedItem)
+                        }
+                        
                     }
-                    .onDelete(perform: deleteItem)
-                    
-                }.sheet(item: $selectedItem){ selectedItem in
-                    NavigationView{
-                        UpdateList(listUpdate: selectedItem)
-                    }
-                    
-                }
-                .navigationTitle("My Lists")
-                .searchable(text: $searchText)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            isActive = true
-                        }) {
-                            Image(systemName: "plus")
-                                .foregroundColor(.ourGreen)
+                    .navigationTitle("My Lists")
+                    .searchable(text: $searchText)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing) {
+                            Button(action: {
+                                isActive = true
+                            }) {
+                                Image(systemName: "plus")
+                                    .foregroundColor(.ourGreen)
+                            }
                         }
                     }
-                }
-                .background(
-                    NavigationLink(destination: CreateList(), isActive: $isActive) {
-                        EmptyView()
+                    .background(
+                        NavigationLink(destination: CreateList(), isActive: $isActive) {
+                            EmptyView()
+                        }
+                    )
+                    LocationTracker()
+                    
+                    
+                }.navigationBarBackButtonHidden(true)
+                
+            }  .accentColor(.ourGreen)
+                .onAppear {
+                    let locationManager = CLLocationManager()
+                    locationManager.requestWhenInUseAuthorization()
+                    
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in
+                        
                     }
-                )
-                LocationTracker()
-
-                
-            }.navigationBarBackButtonHidden(true)
-            
-        }.onAppear {
-            let locationManager = CLLocationManager()
-            locationManager.requestWhenInUseAuthorization()
-            
-            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in
-                
-            }
-        }
+                    
+                }
+        }.ignoresSafeArea(.keyboard)
     }
     func deleteItem(at offsets: IndexSet) {
         for offset in offsets {

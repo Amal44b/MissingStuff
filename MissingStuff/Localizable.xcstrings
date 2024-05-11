@@ -313,6 +313,9 @@
         }
       }
     },
+    "Save" : {
+
+    },
     "Update" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -323,6 +326,9 @@
           }
         }
       }
+    },
+    "User location: %@" : {
+
     },
     "Watchs" : {
       "extractionState" : "manual",

@@ -22,13 +22,11 @@ struct CheckList: View {
     var body: some View {
             ZStack{
 
-                Color.darkGray.ignoresSafeArea()
+//                Color.darkGray.ignoresSafeArea()
 
                 VStack/*(alignment: .leading)*/{
                     
-                    Text("\(completedItemCount)/\(listCheck.items.count) items") // النص الذي يوضح عدد العناصر المنتهية
-                        .frame(alignment: .center)
-                        .font(.caption2)
+                   
                     
                     List {
                         ForEach(listCheck.items, id: \.self) { item in
@@ -42,16 +40,19 @@ struct CheckList: View {
                                     }
                                 }) {
                                     Image(systemName: self.isCompleted[item, default: false] ? "checkmark.circle.fill" : "circle")
-                                        .foregroundColor(self.isCompleted[item, default: false] ? .green : .gray)
+                                        .frame(width: 30 , height: 30)
+                                        .foregroundColor(self.isCompleted[item, default: false] ? .ourGreen : .gray)
                                 }
                                 Text(item)
                             }
-                            .listRowBackground(Color.darkGray)
+//                            .listRowBackground(Color.darkGray)
                         
                         }
                     }.listStyle(PlainListStyle())
                        
-                    
+                    Text("\(completedItemCount)/\(listCheck.items.count) items") // النص الذي يوضح عدد العناصر المنتهية
+                        .frame(alignment: .center)
+                        .font(.system(size: 20))
                 }
             }
             .navigationTitle(listCheck.name)
