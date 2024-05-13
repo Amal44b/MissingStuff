@@ -35,13 +35,13 @@ struct UpdateList: View {
     var body: some View {
         GeometryReader{_ in 
             ZStack{
-                //            Color.darkGray.ignoresSafeArea()
+                            Color.ourBackground.ignoresSafeArea()
                 
                 VStack(alignment:.leading){
                     
                     HStack{
                         Text("List Name")
-                        //                        .foregroundColor(.white)
+                        
                         Text("*")
                             .foregroundColor(.red)
                     }
@@ -49,16 +49,16 @@ struct UpdateList: View {
                         Rectangle()
                             .frame(width: 360 , height: 32.19)
                             .cornerRadius(10)
-                            .foregroundColor(.ourWhite)
+                            .foregroundColor(.white)
                         TextField("", text: $listUpdate.name)
-                        //                        .foregroundColor(.white)
+                       
                             .padding()
                         
                     }
                     
                     HStack{
                         Text("Pick an item or add it")
-                        //                        .foregroundColor(.white)
+                        
                         Text("*")
                             .foregroundColor(.red)
                         
@@ -108,7 +108,7 @@ struct UpdateList: View {
                                             }
                                         }
                                     Text(items2[index])
-                                    //                                    .foregroundColor(.white)
+                                   
                                 }
                             }
                         }
@@ -118,7 +118,7 @@ struct UpdateList: View {
                     
                     HStack{
                         Text("List Location")
-                        //                        .foregroundColor(.white)
+                        
                         Text("*")
                             .foregroundColor(.red)
                     }
@@ -132,7 +132,7 @@ struct UpdateList: View {
                     if self.locationName != "" {
                         HStack{
                             Text(self.locationName)
-                            //                            .foregroundColor(.white)
+                            
                         }
                     }
                     

@@ -12,7 +12,7 @@ import CoreLocation
 struct MainPage: View {
     
     @Environment(\.modelContext) var modelContext
-//    @Environment(\.presentationMode) var presentationMode
+
 
     @Query var listQuery: [ListModel]
     
@@ -23,6 +23,10 @@ struct MainPage: View {
     @State private var searchText = ""
     @State private var sortOrder = SortDescriptor(\ListModel.name)
     @State private var isPresented = false
+    
+    
+    @ObservedObject var locationManager = LocationManager()
+    @Query var locationQuery: [ListModel]
     
     var filteredList: [ListModel] {
         if searchText.isEmpty{
@@ -35,7 +39,7 @@ struct MainPage: View {
         GeometryReader{_ in
             NavigationStack{
                 ZStack{
-                    //                Color.darkGray.ignoresSafeArea()
+                                    Color.ourBackground.ignoresSafeArea()
                     List{
                         ForEach(filteredList) { subList in
                             NavigationLink(destination: CheckList(listCheck: subList)){
@@ -89,20 +93,20 @@ struct MainPage: View {
                             EmptyView()
                         }
                     )
-                    LocationTracker()
+//                    LocationTracker()
                     
                     
                 }.navigationBarBackButtonHidden(true)
                 
             }  .accentColor(.ourGreen)
                 .onAppear {
-                    let locationManager = CLLocationManager()
-                    locationManager.requestWhenInUseAuthorization()
+                    let locationManager1 = CLLocationManager()
+                    locationManager1.requestWhenInUseAuthorization()
                     
                     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in
                         
                     }
-                    
+                    locationManager.sortLocations(listQuery: locationQuery)
                 }
         }.ignoresSafeArea(.keyboard)
     }

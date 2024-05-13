@@ -1,10 +1,3 @@
-//
-//  MapViewModel.swift
-//  MissingStuff
-//
-//  Created by Maryam Mohammad on 01/11/1445 AH.
-//
-
 import Foundation
 import MapKit
 import SwiftData
@@ -25,6 +18,11 @@ struct MapView: UIViewRepresentable {
         mapView.delegate = context.coordinator
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
+        
+        // Add tap gesture recognizer to the map view
+        let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap(_:)))
+        mapView.addGestureRecognizer(tapGesture)
+        
         return mapView
     }
 
@@ -45,16 +43,16 @@ class Coordinator: NSObject, MKMapViewDelegate {
         guard !(annotation is MKUserLocation) else {
             return nil
         }
-
+        
         let identifier = "pin"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-
+        
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView!.canShowCallout = true
             annotationView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             annotationView!.tintColor = .red
-
+            
             let imageView = UIImageView(image: UIImage(systemName: "mappin"))
             imageView.tintColor = .red
             annotationView!.addSubview(imageView)
@@ -65,38 +63,50 @@ class Coordinator: NSObject, MKMapViewDelegate {
                 imageView.widthAnchor.constraint(equalToConstant: 50),
                 imageView.heightAnchor.constraint(equalToConstant: 50)
             ])
-
+            
             annotationView!.isDraggable = true
         } else {
             annotationView!.annotation = annotation
         }
-
+        
         return annotationView
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-            if annotation == nil {
-                annotation = MKPointAnnotation()
-                mapView.addAnnotation(annotation!)
-            }
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-            mapView.addGestureRecognizer(tapGesture)
-        }
-        
-    @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
-        guard let context = parent.mapView.superview else {
-            return
-        }
-        
-        let location = gestureRecognizer.location(in: context)
-        let coordinate = parent.mapView.convert(location, toCoordinateFrom: context)
-        annotation?.coordinate = coordinate
-        
-        CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)) { (places, error) in
-            if let place = places?.first {
-                self.parent.locationName = place.name ?? place.postalCode ?? "None"
-            }
-        }
-    }
-
-    }
+           if annotation == nil {
+               annotation = MKPointAnnotation()
+               mapView.addAnnotation(annotation!)
+           }
+           let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+           mapView.addGestureRecognizer(tapGesture)
+       }
+       
+       func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationView.DragState, fromOldState oldState: MKAnnotationView.DragState) {
+           if newState == .ending {
+               let location = CLLocation(latitude: view.annotation!.coordinate.latitude, longitude: view.annotation!.coordinate.longitude)
+               CLGeocoder().reverseGeocodeLocation(location) { (places, error) in
+                   if let place = places?.first {
+                       self.parent.locationName = place.name ?? place.postalCode ?? "None"
+                   }
+               }
+           }
+       }
+       
+       @objc func handleTap(_ gestureRecognizer: UITapGestureRecognizer) {
+           let location = gestureRecognizer.location(in: parent.mapView)
+           let coordinate = parent.mapView.convert(location, toCoordinateFrom: parent.mapView)
+           
+           if annotation == nil {
+               annotation = MKPointAnnotation()
+               parent.mapView.addAnnotation(annotation!)
+           }
+           
+           annotation?.coordinate = coordinate
+           
+           CLGeocoder().reverseGeocodeLocation(CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)) { (places, error) in
+               if let place = places?.first {
+                   self.parent.locationName = place.name ?? place.postalCode ?? "None"
+               }
+           }
+       }
+   }

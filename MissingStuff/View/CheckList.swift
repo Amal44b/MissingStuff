@@ -22,9 +22,9 @@ struct CheckList: View {
     var body: some View {
             ZStack{
 
-//                Color.darkGray.ignoresSafeArea()
+                Color.ourBackground.ignoresSafeArea()
 
-                VStack/*(alignment: .leading)*/{
+                VStack{
                     
                    
                     
@@ -48,7 +48,7 @@ struct CheckList: View {
 //                            .listRowBackground(Color.darkGray)
                         
                         }
-                    }.listStyle(PlainListStyle())
+                    }/*.listStyle(PlainListStyle())*/
                        
                     Text("\(completedItemCount)/\(listCheck.items.count) items") // النص الذي يوضح عدد العناصر المنتهية
                         .frame(alignment: .center)

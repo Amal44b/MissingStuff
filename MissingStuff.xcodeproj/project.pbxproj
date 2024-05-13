@@ -11,15 +11,16 @@
 		04D0B2992BD4FAA100EA872D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D0B2982BD4FAA100EA872D /* Assets.xcassets */; };
 		04D0B29C2BD4FAA100EA872D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D0B29B2BD4FAA100EA872D /* Preview Assets.xcassets */; };
 		180213982BEFFA91009CB2DE /* SoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180213972BEFFA91009CB2DE /* SoundViewModel.swift */; };
-		1802139A2BEFFD3C009CB2DE /* CheckEnglish.wav in Resources */ = {isa = PBXBuildFile; fileRef = 180213992BEFFD3C009CB2DE /* CheckEnglish.wav */; };
 		18326F622BED081200EB5C37 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18326F612BED081200EB5C37 /* MapViewModel.swift */; };
 		18326F642BED0AAD00EB5C37 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18326F632BED0AAD00EB5C37 /* LocationViewModel.swift */; };
 		18326F662BED0AE700EB5C37 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18326F652BED0AE700EB5C37 /* LocationTracker.swift */; };
 		18326F6B2BED0C7E00EB5C37 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18326F6A2BED0C7E00EB5C37 /* UserNotifications.framework */; };
+		18486B562BF1168900304E08 /* CheckA.wav in Resources */ = {isa = PBXBuildFile; fileRef = 18486B552BF1168900304E08 /* CheckA.wav */; };
 		18B487452BDF78B7006598AD /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B487442BDF78B7006598AD /* MainPage.swift */; };
 		18B487472BDF78DD006598AD /* CheckList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B487462BDF78DD006598AD /* CheckList.swift */; };
 		18B487492BDF791A006598AD /* CreateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B487482BDF791A006598AD /* CreateList.swift */; };
 		18B4874B2BDF7963006598AD /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4874A2BDF7963006598AD /* ListModel.swift */; };
+		18F61D3E2BF0C42700C52699 /* CheckE.wav in Resources */ = {isa = PBXBuildFile; fileRef = 18F61D3D2BF0C42700C52699 /* CheckE.wav */; };
 		29F691642BE78C19008DBE5F /* UpdateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F691632BE78C19008DBE5F /* UpdateList.swift */; };
 		29F6916B2BEB59B9008DBE5F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 29F6916A2BEB59B9008DBE5F /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
@@ -30,17 +31,18 @@
 		04D0B2982BD4FAA100EA872D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04D0B29B2BD4FAA100EA872D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		180213972BEFFA91009CB2DE /* SoundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewModel.swift; sourceTree = "<group>"; };
-		180213992BEFFD3C009CB2DE /* CheckEnglish.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CheckEnglish.wav; sourceTree = "<group>"; };
 		18326F612BED081200EB5C37 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		18326F632BED0AAD00EB5C37 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		18326F652BED0AE700EB5C37 /* LocationTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
 		18326F672BED0C1300EB5C37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		18326F682BED0C4D00EB5C37 /* MissingStuff.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MissingStuff.entitlements; sourceTree = "<group>"; };
 		18326F6A2BED0C7E00EB5C37 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		18486B552BF1168900304E08 /* CheckA.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CheckA.wav; sourceTree = "<group>"; };
 		18B487442BDF78B7006598AD /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		18B487462BDF78DD006598AD /* CheckList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckList.swift; sourceTree = "<group>"; };
 		18B487482BDF791A006598AD /* CreateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateList.swift; sourceTree = "<group>"; };
 		18B4874A2BDF7963006598AD /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		18F61D3D2BF0C42700C52699 /* CheckE.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = CheckE.wav; sourceTree = "<group>"; };
 		29F691632BE78C19008DBE5F /* UpdateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateList.swift; sourceTree = "<group>"; };
 		29F6916A2BEB59B9008DBE5F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,7 +87,8 @@
 				04D0B2942BD4FAA000EA872D /* MissingStuffApp.swift */,
 				29F6916A2BEB59B9008DBE5F /* Localizable.xcstrings */,
 				04D0B2982BD4FAA100EA872D /* Assets.xcassets */,
-				180213992BEFFD3C009CB2DE /* CheckEnglish.wav */,
+				18F61D3D2BF0C42700C52699 /* CheckE.wav */,
+				18486B552BF1168900304E08 /* CheckA.wav */,
 				04D0B29A2BD4FAA100EA872D /* Preview Content */,
 			);
 			path = MissingStuff;
@@ -185,7 +188,6 @@
 			);
 			mainGroup = 04D0B2882BD4FAA000EA872D;
 			packageReferences = (
-				18573D322BED7AB300887CA7 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			productRefGroup = 04D0B2922BD4FAA000EA872D /* Products */;
 			projectDirPath = "";
@@ -201,9 +203,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1802139A2BEFFD3C009CB2DE /* CheckEnglish.wav in Resources */,
 				04D0B29C2BD4FAA100EA872D /* Preview Assets.xcassets in Resources */,
 				29F6916B2BEB59B9008DBE5F /* Localizable.xcstrings in Resources */,
+				18486B562BF1168900304E08 /* CheckA.wav in Resources */,
+				18F61D3E2BF0C42700C52699 /* CheckE.wav in Resources */,
 				04D0B2992BD4FAA100EA872D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,17 +441,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		18573D322BED7AB300887CA7 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 04D0B2892BD4FAA000EA872D /* Project object */;
 }
