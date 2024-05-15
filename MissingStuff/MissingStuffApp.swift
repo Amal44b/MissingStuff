@@ -13,7 +13,7 @@ struct MissingStuffApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainPage()
+            ContentView()
         }
         .modelContainer(for: ListModel.self)
     }

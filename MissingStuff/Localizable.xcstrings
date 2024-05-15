@@ -255,6 +255,9 @@
         }
       }
     },
+    "Next" : {
+
+    },
     "No" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -335,6 +338,12 @@
       }
     },
     "Save" : {
+
+    },
+    "Skip" : {
+
+    },
+    "Start" : {
 
     },
     "T %@" : {

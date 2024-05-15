@@ -10,6 +10,13 @@
 		04D0B2952BD4FAA000EA872D /* MissingStuffApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D0B2942BD4FAA000EA872D /* MissingStuffApp.swift */; };
 		04D0B2992BD4FAA100EA872D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D0B2982BD4FAA100EA872D /* Assets.xcassets */; };
 		04D0B29C2BD4FAA100EA872D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D0B29B2BD4FAA100EA872D /* Preview Assets.xcassets */; };
+		04D1FF322BF4FBD2004E4C1D /* OnBoardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1FF312BF4FBD2004E4C1D /* OnBoardingModel.swift */; };
+		04D1FF332BF4FBE3004E4C1D /* OnBoardingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1FF312BF4FBD2004E4C1D /* OnBoardingModel.swift */; };
+		04D1FF352BF4FC3C004E4C1D /* OnBoardingPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1FF342BF4FC3C004E4C1D /* OnBoardingPage.swift */; };
+		04D1FF372BF4FCB7004E4C1D /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D1FF362BF4FCB7004E4C1D /* OnBoardingView.swift */; };
+		04D1FF382BF50DCF004E4C1D /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B487442BDF78B7006598AD /* MainPage.swift */; };
+		04D8A7592BF4B9B70082F4CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A7582BF4B9B70082F4CD /* ContentView.swift */; };
+		04D8A75A2BF4BC430082F4CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D0B2982BD4FAA100EA872D /* Assets.xcassets */; };
 		180213982BEFFA91009CB2DE /* SoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180213972BEFFA91009CB2DE /* SoundViewModel.swift */; };
 		18326F622BED081200EB5C37 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18326F612BED081200EB5C37 /* MapViewModel.swift */; };
 		18326F642BED0AAD00EB5C37 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18326F632BED0AAD00EB5C37 /* LocationViewModel.swift */; };
@@ -27,13 +34,11 @@
 		189523C72BF3F94D00579D82 /* widgetExaple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189523C62BF3F94D00579D82 /* widgetExaple.swift */; };
 		189523C92BF40A0C00579D82 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B4874A2BDF7963006598AD /* ListModel.swift */; };
 		189523CC2BF40B4800579D82 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 29F6916A2BEB59B9008DBE5F /* Localizable.xcstrings */; };
-		189523CD2BF40B4C00579D82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D0B2982BD4FAA100EA872D /* Assets.xcassets */; };
 		189523CE2BF40B4F00579D82 /* CheckE.wav in Resources */ = {isa = PBXBuildFile; fileRef = 18F61D3D2BF0C42700C52699 /* CheckE.wav */; };
 		189523CF2BF40B5200579D82 /* CheckA.wav in Resources */ = {isa = PBXBuildFile; fileRef = 18486B552BF1168900304E08 /* CheckA.wav */; };
 		189523D02BF40B6400579D82 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18326F632BED0AAD00EB5C37 /* LocationViewModel.swift */; };
 		189523D12BF40B6800579D82 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18326F612BED081200EB5C37 /* MapViewModel.swift */; };
 		189523D22BF40B6F00579D82 /* CheckList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B487462BDF78DD006598AD /* CheckList.swift */; };
-		189523D32BF40B7200579D82 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B487442BDF78B7006598AD /* MainPage.swift */; };
 		189523D42BF40B7500579D82 /* CreateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B487482BDF791A006598AD /* CreateList.swift */; };
 		189523D52BF40B7900579D82 /* UpdateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F691632BE78C19008DBE5F /* UpdateList.swift */; };
 		18B487452BDF78B7006598AD /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B487442BDF78B7006598AD /* MainPage.swift */; };
@@ -74,6 +79,10 @@
 		04D0B2942BD4FAA000EA872D /* MissingStuffApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissingStuffApp.swift; sourceTree = "<group>"; };
 		04D0B2982BD4FAA100EA872D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04D0B29B2BD4FAA100EA872D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		04D1FF312BF4FBD2004E4C1D /* OnBoardingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingModel.swift; sourceTree = "<group>"; };
+		04D1FF342BF4FC3C004E4C1D /* OnBoardingPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPage.swift; sourceTree = "<group>"; };
+		04D1FF362BF4FCB7004E4C1D /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
+		04D8A7582BF4B9B70082F4CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		180213972BEFFA91009CB2DE /* SoundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewModel.swift; sourceTree = "<group>"; };
 		18326F612BED081200EB5C37 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		18326F632BED0AAD00EB5C37 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
@@ -175,8 +184,10 @@
 				18326F652BED0AE700EB5C37 /* LocationTracker.swift */,
 				18B487462BDF78DD006598AD /* CheckList.swift */,
 				18B487442BDF78B7006598AD /* MainPage.swift */,
+				04D8A7582BF4B9B70082F4CD /* ContentView.swift */,
 				18B487482BDF791A006598AD /* CreateList.swift */,
 				29F691632BE78C19008DBE5F /* UpdateList.swift */,
+				04D1FF362BF4FCB7004E4C1D /* OnBoardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				18B4874A2BDF7963006598AD /* ListModel.swift */,
+				04D1FF312BF4FBD2004E4C1D /* OnBoardingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,6 +207,7 @@
 				18326F632BED0AAD00EB5C37 /* LocationViewModel.swift */,
 				180213972BEFFA91009CB2DE /* SoundViewModel.swift */,
 				18326F612BED081200EB5C37 /* MapViewModel.swift */,
+				04D1FF342BF4FC3C004E4C1D /* OnBoardingPage.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -323,9 +336,9 @@
 			files = (
 				189523CC2BF40B4800579D82 /* Localizable.xcstrings in Resources */,
 				189523CE2BF40B4F00579D82 /* CheckE.wav in Resources */,
-				189523CD2BF40B4C00579D82 /* Assets.xcassets in Resources */,
 				189523CF2BF40B5200579D82 /* CheckA.wav in Resources */,
 				189523BE2BF3F3D800579D82 /* Assets.xcassets in Resources */,
+				04D8A75A2BF4BC430082F4CD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +350,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				18B487472BDF78DD006598AD /* CheckList.swift in Sources */,
+				04D1FF322BF4FBD2004E4C1D /* OnBoardingModel.swift in Sources */,
 				18B487492BDF791A006598AD /* CreateList.swift in Sources */,
+				04D1FF372BF4FCB7004E4C1D /* OnBoardingView.swift in Sources */,
+				04D8A7592BF4B9B70082F4CD /* ContentView.swift in Sources */,
 				180213982BEFFA91009CB2DE /* SoundViewModel.swift in Sources */,
 				189523C72BF3F94D00579D82 /* widgetExaple.swift in Sources */,
 				18326F662BED0AE700EB5C37 /* LocationTracker.swift in Sources */,
@@ -347,6 +363,7 @@
 				04D0B2952BD4FAA000EA872D /* MissingStuffApp.swift in Sources */,
 				18B487452BDF78B7006598AD /* MainPage.swift in Sources */,
 				18326F642BED0AAD00EB5C37 /* LocationViewModel.swift in Sources */,
+				04D1FF352BF4FC3C004E4C1D /* OnBoardingPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,11 +377,12 @@
 				189523D42BF40B7500579D82 /* CreateList.swift in Sources */,
 				189523BC2BF3F3D700579D82 /* AppIntent.swift in Sources */,
 				189523B82BF3F3D700579D82 /* ListWidjetLiveActivity.swift in Sources */,
-				189523D32BF40B7200579D82 /* MainPage.swift in Sources */,
 				189523D02BF40B6400579D82 /* LocationViewModel.swift in Sources */,
+				04D1FF332BF4FBE3004E4C1D /* OnBoardingModel.swift in Sources */,
 				189523BA2BF3F3D700579D82 /* ListWidjet.swift in Sources */,
 				189523C92BF40A0C00579D82 /* ListModel.swift in Sources */,
 				189523D12BF40B6800579D82 /* MapViewModel.swift in Sources */,
+				04D1FF382BF50DCF004E4C1D /* MainPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,7 +526,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MissingStuff/Preview Content\"";
-				DEVELOPMENT_TEAM = 4RJGH6DGFS;
+				DEVELOPMENT_TEAM = 7246UF2S5L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MissingStuff/Info.plist;
@@ -545,7 +563,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MissingStuff/Preview Content\"";
-				DEVELOPMENT_TEAM = 4RJGH6DGFS;
+				DEVELOPMENT_TEAM = 7246UF2S5L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MissingStuff/Info.plist;
@@ -580,7 +598,7 @@
 				CODE_SIGN_ENTITLEMENTS = ListWidjetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4RJGH6DGFS;
+				DEVELOPMENT_TEAM = 7246UF2S5L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ListWidjet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ListWidjet;
@@ -612,7 +630,7 @@
 				CODE_SIGN_ENTITLEMENTS = ListWidjetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4RJGH6DGFS;
+				DEVELOPMENT_TEAM = 7246UF2S5L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ListWidjet/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ListWidjet;

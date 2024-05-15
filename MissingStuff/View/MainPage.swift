@@ -97,6 +97,7 @@ struct MainPage: View {
                     
                     
                 }.navigationBarBackButtonHidden(true)
+//                    .navigationTitle("Main Page")
                 
             }  .accentColor(.ourGreen)
                 .onAppear {
