@@ -43,7 +43,7 @@ struct MainPage: View {
                     List{
                         ForEach(filteredList) { subList in
                             NavigationLink(destination: CheckList(listCheck: subList)){
-                                VStack{
+                                VStack(alignment: .leading){
                                     Text(subList.name)
                                         .font(.headline)
                                         .foregroundStyle(.ourYellow)
@@ -102,6 +102,7 @@ struct MainPage: View {
                 .onAppear {
                     let locationManager1 = CLLocationManager()
                     locationManager1.requestWhenInUseAuthorization()
+//                    locationManager1.requestAlwaysAuthorization()
                     
                     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in
                         

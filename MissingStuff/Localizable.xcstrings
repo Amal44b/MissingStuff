@@ -95,6 +95,9 @@
         }
       }
     },
+    "Bottom %@" : {
+
+    },
     "Cancel" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -105,6 +108,9 @@
           }
         }
       }
+    },
+    "Configuration" : {
+
     },
     "Create" : {
       "extractionState" : "manual",
@@ -150,6 +156,9 @@
         }
       }
     },
+    "Favorite Emoji" : {
+
+    },
     "Glasses" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -171,6 +180,9 @@
           }
         }
       }
+    },
+    "Hello %@" : {
+
     },
     "Incomplete Data" : {
       "extractionState" : "manual",
@@ -204,6 +216,12 @@
           }
         }
       }
+    },
+    "L" : {
+
+    },
+    "Leading" : {
+
     },
     "List Location" : {
       "extractionState" : "manual",
@@ -247,6 +265,9 @@
           }
         }
       }
+    },
+    "No items available" : {
+
     },
     "OK" : {
       "extractionState" : "manual",
@@ -314,6 +335,15 @@
       }
     },
     "Save" : {
+
+    },
+    "T %@" : {
+
+    },
+    "This is an example widget." : {
+
+    },
+    "Trailing" : {
 
     },
     "Update" : {

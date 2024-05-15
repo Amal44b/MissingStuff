@@ -28,7 +28,15 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         super.init()
         self.locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
+//        self.locationManager.requestLocation()
         self.locationManager.startUpdatingLocation()
+       
+        
+        
+//        self.locationManager.delegate = self
+//        self.locationManager.requestAlwaysAuthorization()
+//        self.locationManager.startUpdatingLocation()
+        
         
     }
 
@@ -74,7 +82,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
            
            
             
-            if distance <= 500 {
+            if distance <= 1000 {
                 print("inside")
                 
 
@@ -119,21 +127,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         UNUserNotificationCenter.current().add(request)
     }
 
-    func sendNotificationInside() {
-        print("Test Inside")
-        let content = UNMutableNotificationContent()
-        content.title = "Inside"
-        content.body = "Check your stuff before leaving"
 
-        if let soundURL = Bundle.main.url(forResource: "CheckE", withExtension: "wav") {
-            content.sound = UNNotificationSound(named: UNNotificationSoundName(soundURL.lastPathComponent))
-        } else {
-            print("Sound file not found")
-        }
-
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
-        UNUserNotificationCenter.current().add(request)
-    }
 
 
 

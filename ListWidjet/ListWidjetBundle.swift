@@ -12,6 +12,7 @@ import SwiftUI
 struct ListWidjetBundle: WidgetBundle {
     var body: some Widget {
         ListWidjet()
-        ListWidjetLiveActivity()
+        
+       ListWidjetLiveActivity()
     }
 }
