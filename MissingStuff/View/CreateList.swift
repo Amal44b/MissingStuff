@@ -24,10 +24,14 @@ struct CreateList: View {
     
     @State var listCreate = ListModel()
     @Environment(\.modelContext) var modelContext
-    
-    
     @State private var locationName = ""
     
+    @State  var isAddingData = true
+    @Binding  var isEditingData : Bool
+    @State var updateName = ""
+    @State var UpdateItem = [""]
+    @State var listUpdate = ListModel()
+    @State private var alertMessage: String = ""
     var body: some View {
        
             GeometryReader{geometry in
@@ -130,7 +134,7 @@ struct CreateList: View {
                             }
                             
                             
-                            MapView(locationName: $locationName)
+                            MapView(locationName: $locationName/*, isFromUpdate:  isEditingData, listUpdate: listCreate*/)
                                 .edgesIgnoringSafeArea(.all)
                                 .frame(height: geometry.size.height / 2)
                                 .cornerRadius(10)
@@ -144,9 +148,13 @@ struct CreateList: View {
                             }
                             
                             Button(action:{
-                                if listCreate.name.isEmpty || listCreate.items.isEmpty || locationName.isEmpty {
+                                if listCreate.name.isEmpty || listCreate.items.isEmpty  {
                                     showIncompleteDataAlert = true
-                                    return
+                                    alertMessage = "Please complete all data fields."
+//                                    return
+                                } else if locationName.isEmpty{
+                                    showIncompleteDataAlert = true
+                                    alertMessage = "Please select a location "
                                 }
                                 
                                 let geocoder = CLGeocoder()
@@ -167,14 +175,14 @@ struct CreateList: View {
                                         .cornerRadius(10)
                                         .foregroundColor(.ourGreen)
                                     
-                                    Text("Create")
+                                    Text("Save")
                                         .foregroundColor(.white)
                                 }
                             }
                             
                         }.padding(.horizontal)
                             .alert(isPresented: $showIncompleteDataAlert) {
-                                Alert(title: Text("Incomplete Data"), message: Text("Please complete all data fields."), dismissButton: .default(Text("OK")))
+                                Alert(title: Text(""), message: Text(alertMessage), dismissButton: .default(Text("OK")))
                                 
                             }
                         
@@ -189,7 +197,7 @@ struct CreateList: View {
 
 
 
-#Preview {
-    CreateList()
-}
+//#Preview {
+//    CreateList()
+//}
 

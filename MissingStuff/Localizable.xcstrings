@@ -320,6 +320,7 @@
       }
     },
     "Please complete all data fields." : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {

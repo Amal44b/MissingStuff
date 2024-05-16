@@ -16,9 +16,6 @@ struct MainPage: View {
 
     @Query var listQuery: [ListModel]
     
-//    @Query(filter: #Predicate<ListModel>{ !$0.isCompleted}, animation: .snappy) private var listQuery: [ListModel]
-
-    
     @State var updateIsActive = false
     @State var selectedItem: ListModel? = nil
     
@@ -29,7 +26,12 @@ struct MainPage: View {
     
     
     @ObservedObject var locationManager = LocationManager()
-//    @Query var locationQuery: [ListModel]
+    @Query var locationQuery: [ListModel]
+    
+    @State private var isActiveEdit = false
+    @State private var isAddingData = false
+    @State private var isEditingData = false
+    @State var listUpdate = ListModel()
     
     var filteredList: [ListModel] {
         if searchText.isEmpty{
@@ -42,7 +44,8 @@ struct MainPage: View {
         GeometryReader{_ in
             NavigationStack{
                 ZStack{
-                                    Color.ourBackground.ignoresSafeArea()
+                    Color.ourBackground.ignoresSafeArea()
+                    
                     List{
                         ForEach(filteredList) { subList in
                             NavigationLink(destination: CheckList(listCheck: subList)){
@@ -56,6 +59,10 @@ struct MainPage: View {
                                     
                                 }.swipeActions(){
                                     Button {
+                                        isEditingData = true
+                                        isActiveEdit = true
+                                        isActive = false
+                                        isAddingData = false
                                         selectedItem = subList
                                     } label: {
                                         Text("Edit")
@@ -72,11 +79,11 @@ struct MainPage: View {
                             }
                         }
                         .onDelete(perform: deleteItem)
-                        
-                    }.sheet(item: $selectedItem){ selectedItem in
-                        NavigationView{
-                            UpdateList(listUpdate: selectedItem)
-                        }
+                    }
+//                    }.sheet(item: $selectedItem){ selectedItem in
+//                        NavigationView{
+//                            UpdateList(listUpdate: selectedItem)
+//                        }
                         
                     }
                     .navigationTitle("My Lists")
@@ -84,7 +91,11 @@ struct MainPage: View {
                     .toolbar {
                         ToolbarItem(placement: .navigationBarTrailing) {
                             Button(action: {
+                                isAddingData = true
+                                isEditingData = false
                                 isActive = true
+                                isActiveEdit = false
+                                
                             }) {
                                 Image(systemName: "plus")
                                     .foregroundColor(.ourGreen)
@@ -92,10 +103,14 @@ struct MainPage: View {
                         }
                     }
                     .background(
-                        NavigationLink(destination: CreateList(), isActive: $isActive) {
+                        NavigationLink(destination: CreateList(listCreate: ListModel() ,isEditingData: $isEditingData), isActive: $isActive) {
                             EmptyView()
                         }
                     )
+                NavigationLink(destination: CreateList(listCreate: selectedItem ?? ListModel() , isEditingData : $isEditingData ), isActive: $isActiveEdit) {
+                          EmptyView()
+                              
+                      }
 //                    LocationTracker()
                     
                     
@@ -111,24 +126,22 @@ struct MainPage: View {
                     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in
                         
                     }
-                    locationManager.sortLocations(listQuery: listQuery)
-                }
-        }.ignoresSafeArea(.keyboard)
-    }
-    
-
-    
-    
-    func deleteItem(at offsets: IndexSet) {
-        for offset in offsets {
-            let listitem = listQuery[offset]
-            modelContext.delete(listitem)
+                    locationManager.sortLocations(listQuery: locationQuery)
+                }.ignoresSafeArea(.keyboard)
         }
+    func deleteItem(at offsets: IndexSet) {
+           for offset in offsets {
+               let listitem = listQuery[offset]
+               modelContext.delete(listitem)
+           }
+    }
+   
         }
    
 
     
-}
+
 #Preview {
     MainPage()
+        .modelContainer(for: ListModel.self)
 }

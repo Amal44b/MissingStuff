@@ -25,6 +25,7 @@ struct OnBoardingPage: View {
             
                 
             Text(page.description)
+                .foregroundColor(.black)
               //  .offset(x: 1.0, y: -60.0)
                 .frame(width:380, height: 100)
                 .padding(.bottom, 30)
