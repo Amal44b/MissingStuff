@@ -215,3 +215,22 @@
 //}
 
 
+//VStack(alignment: .leading){
+//    HStack {
+//        Button(action: {
+//            
+//        }) {
+//            Image(systemName: self.isCompleted[listItem, default: false] ? "checkmark.circle.fill" : "circle")
+//                .foregroundColor(self.isCompleted[listItem, default: false] ? .ourGreen : .gray)
+//        }.buttonStyle(.plain)
+//        Text(listItem)
+//            .font(.callout)
+////                                            .lineLimit(1)
+//    }
+//    Divider()
+//}
+
+
+
+
+

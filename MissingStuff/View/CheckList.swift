@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import WidgetKit
 
 struct CheckList: View {
     @State var isCompleted:[String: Bool] = [:]
@@ -33,6 +34,7 @@ struct CheckList: View {
                             HStack {
                                 Button(action: {
                                     self.isCompleted[item, default: false].toggle()
+                                    WidgetCenter.shared.reloadAllTimelines()
                                     // هنا يمكنك تغيير حالة الانتهاء لهذا العنصر في القائمة
                                     // يمكنك استخدام حلقة ForEach مع index لتحديد العنصر الذي تم النقر عليه
                                     if self.completedItemCount == self.listCheck.items.count {

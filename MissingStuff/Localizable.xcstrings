@@ -109,6 +109,9 @@
         }
       }
     },
+    "Check ID" : {
+
+    },
     "Configuration" : {
 
     },
@@ -350,6 +353,9 @@
 
     },
     "This is an example widget." : {
+
+    },
+    "Toggle's CheckList State" : {
 
     },
     "Trailing" : {

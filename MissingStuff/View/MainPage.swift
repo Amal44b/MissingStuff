@@ -16,6 +16,9 @@ struct MainPage: View {
 
     @Query var listQuery: [ListModel]
     
+//    @Query(filter: #Predicate<ListModel>{ !$0.isCompleted}, animation: .snappy) private var listQuery: [ListModel]
+
+    
     @State var updateIsActive = false
     @State var selectedItem: ListModel? = nil
     
@@ -26,7 +29,7 @@ struct MainPage: View {
     
     
     @ObservedObject var locationManager = LocationManager()
-    @Query var locationQuery: [ListModel]
+//    @Query var locationQuery: [ListModel]
     
     var filteredList: [ListModel] {
         if searchText.isEmpty{
@@ -108,10 +111,14 @@ struct MainPage: View {
                     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in
                         
                     }
-                    locationManager.sortLocations(listQuery: locationQuery)
+                    locationManager.sortLocations(listQuery: listQuery)
                 }
         }.ignoresSafeArea(.keyboard)
     }
+    
+
+    
+    
     func deleteItem(at offsets: IndexSet) {
         for offset in offsets {
             let listitem = listQuery[offset]

@@ -50,7 +50,7 @@ struct CreateList: View {
                                     .frame(maxWidth: geometry.size.width)
                                     .frame(height: 35)
                                     .cornerRadius(10)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.midWhite)
                                 TextField("" , text: $listCreate.name)
                                 
                                 

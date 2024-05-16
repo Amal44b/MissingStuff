@@ -12,7 +12,7 @@ import SwiftData
 
 @Model
 class ListModel{
-    private (set) var CheckID: String = UUID().uuidString
+    var CheckID: String = UUID().uuidString
     var name: String
     var items: [String]
     var latitude: CLLocationDegrees
