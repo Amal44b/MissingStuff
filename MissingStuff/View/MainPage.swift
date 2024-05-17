@@ -12,7 +12,7 @@ import CoreLocation
 struct MainPage: View {
     
     @Environment(\.modelContext) var modelContext
-
+   
 
     @Query var listQuery: [ListModel]
     
@@ -95,7 +95,7 @@ struct MainPage: View {
                                 isEditingData = false
                                 isActive = true
                                 isActiveEdit = false
-                                
+                                selectedItem = ListModel()
                             }) {
                                 Image(systemName: "plus")
                                     .foregroundColor(.ourGreen)
