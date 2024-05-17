@@ -11,10 +11,18 @@ struct OnBoardingView: View {
     @State private var pageIndex = 0
     private let pages: [Page] = Page.samplePages
     private let dotAppearance = UIPageControl.appearance()
-    @State private var showMainPage = false
+    @State private var navigateToMainPage = false
+    //@Binding var isFirstLaunch: Bool
     var body: some View {
-        VStack{
-            NavigationStack{
+        ZStack{
+            Image("OnBoardingColor")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                .edgesIgnoringSafeArea(.all)
+            
+            
+            VStack{
                 ZStack(alignment: .topTrailing) {
                     TabView(selection: $pageIndex){
                         ForEach(pages) { page in
@@ -41,54 +49,71 @@ struct OnBoardingView: View {
                         dotAppearance.pageIndicatorTintColor = .gray
                         
                     }
-                    if pageIndex < 2 { // Show skip button only on the first and second image
-                        /*Button("Skip", action: goToLast)*/ // Replace "Skip" with the desired text
-                        //                    Button(action: {
-                        //
-                        //                        showMainPage = true
-                        //                                    }) {
-                        //                                        Text("Skip")
-                        //                                    }
-                        NavigationLink(destination: MainPage()) {
-                            Text("Skip")
-                        }
+                    if pageIndex < 2 {
+                        Button("Skip", action: {
+                            navigateToMainPage = true // Set the state variable to true
+                        })
                         .buttonStyle(BorderlessButtonStyle())
                         .padding(.top, 40)
                         .padding(.trailing, 20)
+                        .foregroundColor(.ourGreen2)
+                        .fullScreenCover(isPresented: $navigateToMainPage) {
+                            MainPage()
+                        }
                     }
-                    
-                    
                 }
                 
                 if pageIndex == pages.count - 1 {
-                    NavigationLink(destination: MainPage()) {
-                        Text("Start")
-                    }
+                    Button("Start", action: {
+                        navigateToMainPage = true // Set the state variable to true
+                    })
                     .buttonStyle(BorderlessButtonStyle())
-                    .padding(.bottom, 20)
+                    //.padding(.bottom, 20)
+                    .padding(.horizontal, 150)
+                    
+                    .padding(.vertical, 14)
+                    .foregroundColor(.white)
+                    .background(.ourGreen2)
+                    .cornerRadius(10)
+                    .padding(.bottom,35)
+                    .fullScreenCover(isPresented: $navigateToMainPage) {
+                        MainPage()
+                    }
                 } else {
                     Button("Next", action: incrementPage)
-                        .padding(.bottom, 20)
+                    //.padding(.bottom, 20)
+                    // .padding()
+                        .padding(.horizontal, 150)
+                        .frame(height: 50)
+                        //.padding(.vertical, 14)
+                        .foregroundColor(.white)
+                        .background(.ourGreen2)
+                        .cornerRadius(10)
+                        .padding(.bottom,35)
+                    
+                    
+                    
                 }
                 
                 
-                
-            }
-            .background(Color.white.edgesIgnoringSafeArea(.all))
-            //                .sheet(isPresented: $showMainPage) {
-            //                    MainPage()
-            //                }
-        }
+            } }
+        .onAppear(perform: {
+            UserDefaults.standard.welcomeScreenShown = true
+        })
     }
-        func incrementPage(){
-            pageIndex += 1
-        }
-        func goToLast() {
+    func incrementPage(){
+        pageIndex += 1
+    }
+    func goToZero() {
+        pageIndex = 0
+    }
+    func goToLast() {
             pageIndex = pages.count - 1
         }
-    
 }
 
-#Preview {
-    OnBoardingView()
+struct OnBoardingView_Previews: PreviewProvider {
+    static var previews: some View {
+        OnBoardingView()
+    }
 }

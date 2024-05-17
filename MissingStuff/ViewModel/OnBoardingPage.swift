@@ -8,27 +8,24 @@
 import SwiftUI
 
 struct OnBoardingPage: View {
+    @State  var mood: String = "Dark"
     var page : Page
     var body: some View {
+        
         VStack(spacing:20){
             Image("\(page.imageUrl)")
                // .resizable()
                 .scaledToFit()
                 .padding(.bottom, 30)
                 .cornerRadius(30)
-                //.edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-              //  .offset(x: 1.0, y: -77.0)
-              //  .background(.gray.opacity(0.10))
-               // .cornerRadius(10)
               
               
             
                 
             Text(page.description)
-                .foregroundColor(.black)
-              //  .offset(x: 1.0, y: -60.0)
                 .frame(width:380, height: 100)
                 .padding(.bottom, 30)
+                .foregroundColor(.white)
                
         }
         

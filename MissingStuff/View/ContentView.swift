@@ -6,6 +6,22 @@
 //
 
 import SwiftUI
+
+
+
+extension UserDefaults {
+    
+    var welcomeScreenShown: Bool {
+        get {
+            return (UserDefaults.standard.value(forKey: "welcomeScreenShown") as? Bool) ?? false
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "welcomeScreenShown")
+        }
+    }
+    
+}
+
 struct splashView: View {
 
     let images: [Image]
@@ -16,36 +32,53 @@ struct splashView: View {
     @State private var isAnimating = false
     @State private var animationFinished = false
     @State var isActive : Bool = false
+   // @State private var isFirstTime = true
     var body: some View {
-        
-        VStack {
-            if isActive {
-                OnBoardingView()
-                   .edgesIgnoringSafeArea(.all)
-                    
-
-            }
-            else {
-                images[currentIndex]
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 300, height: 300)
-                    .animation(.easeInOut(duration: transitionDuration))
-                    .opacity(isAnimating ? 1 : 1)
-            }
-         
+        ZStack{
+            Image("splashColor")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                .edgesIgnoringSafeArea(.all)
             
-        }
-        
+            VStack{
+                
+                if isActive  {
+                    
+                    if UserDefaults.standard.welcomeScreenShown {
+                        MainPage()
+                        // .edgesIgnoringSafeArea(.all)
+                    } else {
+                        OnBoardingView()
+                    }
+                    
+                    
+                }
+                else {
+                    images[currentIndex]
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 300, height: 300)
+                        .animation(.easeInOut(duration: transitionDuration))
+                        .opacity(isAnimating ? 1 : 1)
+                    
+                }
+               
+                
+            } }
         .onAppear {
+//                    if isFirstLaunch {
+//                        isFirstLaunch = false
+//                    }
             startAnimation()
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 withAnimation{
                     self.isActive = true
                 }
             }
-            
-        } .onChange(of: currentIndex) { newValue in
+                }
+
+        .onChange(of: currentIndex) { newValue in
             if newValue == images.count - 1 {
                 animationFinished = true
                 
@@ -80,8 +113,8 @@ struct ContentView: View {
         //يغيرون السرعه
      //   .frame(width: 300, height: 300)
         .containerRelativeFrame([.horizontal, .vertical])
-        .background(Gradient(colors: [.ourGreen, .ourGreen, .ourWhite]).opacity(0.6))
-        //OnBoardingView()
+//        .background(Gradient(colors: [.ourGreen, .ourGreen, .ourWhite]).opacity(0.6))
+        
     }
 }
 
