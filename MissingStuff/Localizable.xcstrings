@@ -79,7 +79,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تم الانتهاء من كافة العناصر "
+            "value" : "أغراضك مكتملة"
           }
         }
       }
@@ -259,7 +259,14 @@
       }
     },
     "Next" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "التالي"
+          }
+        }
+      }
     },
     "No" : {
       "extractionState" : "manual",
@@ -273,7 +280,14 @@
       }
     },
     "No items available" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا توجد قائمة لموقعك الحالي"
+          }
+        }
+      }
     },
     "OK" : {
       "extractionState" : "manual",
@@ -325,7 +339,7 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "الرجاء امال جميع البيانات"
+            "value" : "الرجاء اكمال جميع البيانات"
           }
         }
       }
@@ -342,10 +356,24 @@
       }
     },
     "Save" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حفظ"
+          }
+        }
+      }
     },
     "Skip" : {
-
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تخطي"
+          }
+        }
+      }
     },
     "Start" : {
 

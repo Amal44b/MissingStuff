@@ -82,7 +82,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
            
            
             
-            if distance <= 3000 {
+            if distance <= 17 {
                 print("inside")
                 
 
@@ -111,40 +111,40 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
 
 
     
-    func sendNotificationOutside() {
-        print("test OutSide")
-        let content = UNMutableNotificationContent()
-        content.title = "OutSide"
-        content.body = "Check your stuff before leaving"
-
-        if let soundURL = Bundle.main.url(forResource: "CheckE", withExtension: "wav") {
-            content.sound = UNNotificationSound(named: UNNotificationSoundName(soundURL.lastPathComponent))
-        } else {
-            print("Sound file not found")
-        }
-
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
-        UNUserNotificationCenter.current().add(request)
-    }
-
-//
 //    func sendNotificationOutside() {
-//           print("test OutSide")
-//           let content = UNMutableNotificationContent()
-//           content.title = "OutSide"
-//           content.body = "Check your stuff before leaving"
+//        print("test OutSide")
+//        let content = UNMutableNotificationContent()
+//        content.title = "OutSide"
+//        content.body = "Check your stuff before leaving"
 //
-//           if let soundURL = Bundle.main.url(forResource: "CheckE", withExtension: "wav") {
-//               let soundName = UNNotificationSoundName(soundURL.lastPathComponent)
-//               content.sound = UNNotificationSound(named: soundName)
-//           } else {
-//               print("Sound file not found")
-//           }
+//        if let soundURL = Bundle.main.url(forResource: "CheckE", withExtension: "wav") {
+//            content.sound = UNNotificationSound(named: UNNotificationSoundName(soundURL.lastPathComponent))
+//        } else {
+//            print("Sound file not found")
+//        }
 //
-//           let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-//           let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-//           UNUserNotificationCenter.current().add(request)
-//       }
+//        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
+//        UNUserNotificationCenter.current().add(request)
+//    }
+
+//
+    func sendNotificationOutside() {
+           print("test OutSide")
+           let content = UNMutableNotificationContent()
+           content.title = "OutSide"
+           content.body = "Check your stuff before leaving"
+
+           if let soundURL = Bundle.main.url(forResource: "CheckE", withExtension: "wav") {
+               let soundName = UNNotificationSoundName(soundURL.lastPathComponent)
+               content.sound = UNNotificationSound(named: soundName)
+           } else {
+               print("Sound file not found")
+           }
+
+           let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+           let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+           UNUserNotificationCenter.current().add(request)
+       }
 
 
 }

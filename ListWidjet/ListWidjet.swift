@@ -64,12 +64,27 @@ struct ListWidjetEntryView : View {
         
         return isCompleted.reduce(0) { $1.value ? $0 + 1 : $0 }
     }
+    
+    @State var hiddenItems: Set<String> = []
+    
+    var listName: String = ""
+    var itemsCount: Int = 0
+    
     var body: some View {
       
             HStack{
-//                VStack{
-                    Image("Logo").resizable()
-                        .frame(width: 70 , height: 100)
+                VStack{
+                Image("Logo").resizable()
+                    .frame(width: 50, height: 80)
+                if let firstList = BasedOnLocation.first {
+                    Text(firstList.name)
+                        .font(.headline)
+                    Text("\(firstList.items.count) items")
+                        .font(.subheadline)
+                } 
+                }.padding(.trailing, 15)
+                
+               
                     
 //                    Text("\(completedItemCount)")
 //                        
@@ -92,24 +107,30 @@ struct ListWidjetEntryView : View {
                         
                         
                         ForEach(BasedOnLocation) { item in
+                           
                             
                             ForEach(item.items.prefix(3) , id: \.self){ listItem in
                                 VStack(alignment: .leading){
                                     HStack {
-                                        Button(intent: ToggleButton(id: item.CheckID)) {
-                                          Image(systemName: isCompleted[item.CheckID] ?? false ? "circle.fill" : "circle")
-                                        }.buttonStyle(.plain)
+                                       
+                                        Image(systemName:"circle")
+                                       
                                         Text(listItem)
                                             .font(.callout)
-//                                            .lineLimit(1)
+                                            .lineLimit(1)
+                                    }.onTapGesture(){
+                                        hideItem(listItem)
                                     }
+                                    
+                                    
                                     Divider()
                                 }
                                 .transition(.push(from: .bottom))
+                              
                             }
                         }
                         
-                        
+                       
                     }
                 }
                 .frame(maxWidth: .infinity,maxHeight: .infinity, alignment: .top)
@@ -161,13 +182,16 @@ struct ListWidjetEntryView : View {
                 
                 
                 
-                if distance <= 3000 {
+                if distance <= 17 {
                     
                     BasedOnLocation.append(list)
                 }
             }
+            
         }
-    
+    func hideItem(_ item: String) {
+         hiddenItems.insert(item)
+     }
 
 
 }
@@ -186,19 +210,19 @@ struct ListWidjet: Widget {
     }
 }
 
-extension ConfigurationAppIntent {
-    fileprivate static var smiley: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "😀"
-        return intent
-    }
-    
-    fileprivate static var starEyes: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "🤩"
-        return intent
-    }
-}
+//extension ConfigurationAppIntent {
+//    fileprivate static var smiley: ConfigurationAppIntent {
+//        let intent = ConfigurationAppIntent()
+//        intent.favoriteEmoji = "😀"
+//        return intent
+//    }
+//    
+//    fileprivate static var starEyes: ConfigurationAppIntent {
+//        let intent = ConfigurationAppIntent()
+//        intent.favoriteEmoji = "🤩"
+//        return intent
+//    }
+//}
 //
 //#Preview(as: .systemSmall) {
 //    ListWidjet()
