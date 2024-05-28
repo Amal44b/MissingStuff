@@ -82,7 +82,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
             
             
             
-            if distance <= 100 {
+            if distance <= 17 {
                 print("inside")
                 
                 
@@ -95,7 +95,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
                 print(insideCount)
                 print(timeInterval)
                 
-            } else if (timeInterval >= 600 && insideCount >= 1) {
+            } else if (timeInterval >= 3 && insideCount >= 1) {
                 print(timeInterval)
                 print("outside")
                 print(insideCount)
@@ -129,7 +129,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         //            print("Sound file not found")
         //        }
         let content = UNMutableNotificationContent()
-        content.title = NSLocalizedString("Check", comment: "")
+        content.title = NSLocalizedString("تفقّد", comment: "")
         content.body = NSLocalizedString("Check your stuff before leaving", comment: "")
         
         var soundName: String

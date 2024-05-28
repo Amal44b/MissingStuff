@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "04D0B2902BD4FAA000EA872D"
-               BuildableName = "MissingStuff.app"
-               BlueprintName = "MissingStuff"
-               ReferencedContainer = "container:MissingStuff.xcodeproj">
+               BuildableName = "&#x62a;&#x641;&#x642;&#x651;&#x62f;.app"
+               BlueprintName = "&#x62a;&#x641;&#x642;&#x651;&#x62f;"
+               ReferencedContainer = "container:&#x62a;&#x641;&#x642;&#x651;&#x62f;.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "04D0B2902BD4FAA000EA872D"
-            BuildableName = "MissingStuff.app"
-            BlueprintName = "MissingStuff"
-            ReferencedContainer = "container:MissingStuff.xcodeproj">
+            BuildableName = "&#x62a;&#x641;&#x642;&#x651;&#x62f;.app"
+            BlueprintName = "&#x62a;&#x641;&#x642;&#x651;&#x62f;"
+            ReferencedContainer = "container:&#x62a;&#x641;&#x642;&#x651;&#x62f;.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "04D0B2902BD4FAA000EA872D"
-            BuildableName = "MissingStuff.app"
-            BlueprintName = "MissingStuff"
-            ReferencedContainer = "container:MissingStuff.xcodeproj">
+            BuildableName = "&#x62a;&#x641;&#x642;&#x651;&#x62f;.app"
+            BlueprintName = "&#x62a;&#x641;&#x642;&#x651;&#x62f;"
+            ReferencedContainer = "container:&#x62a;&#x641;&#x642;&#x651;&#x62f;.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

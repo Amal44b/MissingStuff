@@ -10,11 +10,12 @@ import SwiftUI
 import CoreLocation
 import SwiftData
 import AppIntents
+import UserNotifications
 
 
 struct Provider: AppIntentTimelineProvider {
     @ObservedObject var locationManager = LocationManager()
-//    @Query var WidgetList: [ListModel]
+    @Query var WidgetList: [ListModel]
     
     
     func placeholder(in context: Context) -> SimpleEntry {
@@ -69,6 +70,7 @@ struct ListWidjetEntryView : View {
     
     var listName: String = ""
     var itemsCount: Int = 0
+    
     
     var body: some View {
       
@@ -173,19 +175,34 @@ struct ListWidjetEntryView : View {
     }
         
         
-        func checkUserLocation(location: CLLocation) {
+     func checkUserLocation(location: CLLocation) {
             print(location)
-            
+//          var insideCount : Int = 0
+         print("insidewidget")
             for list in WidgetList {
                 let listLocation = CLLocation(latitude: list.latitude, longitude: list.longitude)
                 let distance = location.distance(from: listLocation)
                 
                 
                 
-                if distance <= 17 {
-                    
+                if distance <= 100 {
+                    print("InSideInDise")
                     BasedOnLocation.append(list)
                 }
+//                    insideCount += 1
+//                    print(insideCount)
+//                    print("inside")
+//                } else if (insideCount >= 1) {
+//                   
+//                     print("outsideW")
+//                     print(insideCount)
+//         
+//                    locationManager.sendNotificationOutside()
+//                     
+//                     insideCount = 0
+//                    
+//
+//             }
             }
             
         }

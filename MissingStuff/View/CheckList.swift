@@ -22,8 +22,8 @@ struct CheckList: View {
     @State private var alertTitle = "All items completed"
     var body: some View {
             ZStack{
-
-                Color.ourBackground.ignoresSafeArea()
+//
+//                Color.ourBackground.ignoresSafeArea()
 
                 VStack{
                     

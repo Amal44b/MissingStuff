@@ -7,9 +7,35 @@
 
 import SwiftUI
 
+import SwiftUI
+
+
 struct Test: View {
+    private enum Field: Int, CaseIterable {
+        case username, password
+    }
+
+    @State private var username: String = ""
+    @State private var password: String = ""
+
+    @FocusState private var focusedField: Field?
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            Form {
+                TextField("Username", text: $username)
+                    .focused($focusedField, equals: .username)
+                SecureField("Password", text: $password)
+                    .focused($focusedField, equals: .password)
+            }
+            .toolbar {
+                ToolbarItem(placement: .keyboard) {
+                    Button("Done") {
+                        focusedField = nil
+                    }
+                }
+            }
+        }
     }
 }
 

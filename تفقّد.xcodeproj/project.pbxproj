@@ -18,6 +18,7 @@
 		04D8A7592BF4B9B70082F4CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D8A7582BF4B9B70082F4CD /* ContentView.swift */; };
 		04D8A75A2BF4BC430082F4CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04D0B2982BD4FAA100EA872D /* Assets.xcassets */; };
 		180213982BEFFA91009CB2DE /* SoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180213972BEFFA91009CB2DE /* SoundViewModel.swift */; };
+		1814AAFE2C065844007D4933 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1814AAFD2C065844007D4933 /* Test.swift */; };
 		18326F622BED081200EB5C37 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18326F612BED081200EB5C37 /* MapViewModel.swift */; };
 		18326F642BED0AAD00EB5C37 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18326F632BED0AAD00EB5C37 /* LocationViewModel.swift */; };
 		18326F662BED0AE700EB5C37 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18326F652BED0AE700EB5C37 /* LocationTracker.swift */; };
@@ -79,7 +80,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		04D0B2912BD4FAA000EA872D /* MissingStuff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MissingStuff.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04D0B2912BD4FAA000EA872D /* تفقّد.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "تفقّد.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D0B2942BD4FAA000EA872D /* MissingStuffApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissingStuffApp.swift; sourceTree = "<group>"; };
 		04D0B2982BD4FAA100EA872D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04D0B29B2BD4FAA100EA872D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 		04D1FF362BF4FCB7004E4C1D /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		04D8A7582BF4B9B70082F4CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		180213972BEFFA91009CB2DE /* SoundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewModel.swift; sourceTree = "<group>"; };
+		1814AAFD2C065844007D4933 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		18326F612BED081200EB5C37 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		18326F632BED0AAD00EB5C37 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		18326F652BED0AE700EB5C37 /* LocationTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
@@ -152,7 +154,7 @@
 		04D0B2922BD4FAA000EA872D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				04D0B2912BD4FAA000EA872D /* MissingStuff.app */,
+				04D0B2912BD4FAA000EA872D /* تفقّد.app */,
 				189523B12BF3F3D700579D82 /* ListWidjetExtension.appex */,
 			);
 			name = Products;
@@ -194,6 +196,7 @@
 				18B487442BDF78B7006598AD /* MainPage.swift */,
 				04D8A7582BF4B9B70082F4CD /* ContentView.swift */,
 				18B487482BDF791A006598AD /* CreateList.swift */,
+				1814AAFD2C065844007D4933 /* Test.swift */,
 				29F691632BE78C19008DBE5F /* UpdateList.swift */,
 				04D1FF362BF4FCB7004E4C1D /* OnBoardingView.swift */,
 			);
@@ -247,9 +250,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		04D0B2902BD4FAA000EA872D /* MissingStuff */ = {
+		04D0B2902BD4FAA000EA872D /* تفقّد */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 04D0B29F2BD4FAA100EA872D /* Build configuration list for PBXNativeTarget "MissingStuff" */;
+			buildConfigurationList = 04D0B29F2BD4FAA100EA872D /* Build configuration list for PBXNativeTarget "تفقّد" */;
 			buildPhases = (
 				04D0B28D2BD4FAA000EA872D /* Sources */,
 				04D0B28E2BD4FAA000EA872D /* Frameworks */,
@@ -261,11 +264,11 @@
 			dependencies = (
 				189523C12BF3F3D800579D82 /* PBXTargetDependency */,
 			);
-			name = MissingStuff;
+			name = "تفقّد";
 			packageProductDependencies = (
 			);
 			productName = MissingStuff;
-			productReference = 04D0B2912BD4FAA000EA872D /* MissingStuff.app */;
+			productReference = 04D0B2912BD4FAA000EA872D /* تفقّد.app */;
 			productType = "com.apple.product-type.application";
 		};
 		189523B02BF3F3D700579D82 /* ListWidjetExtension */ = {
@@ -303,7 +306,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 04D0B28C2BD4FAA000EA872D /* Build configuration list for PBXProject "MissingStuff" */;
+			buildConfigurationList = 04D0B28C2BD4FAA000EA872D /* Build configuration list for PBXProject "تفقّد" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -319,7 +322,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				04D0B2902BD4FAA000EA872D /* MissingStuff */,
+				04D0B2902BD4FAA000EA872D /* تفقّد */,
 				189523B02BF3F3D700579D82 /* ListWidjetExtension */,
 			);
 		};
@@ -366,6 +369,7 @@
 				18B487492BDF791A006598AD /* CreateList.swift in Sources */,
 				04D1FF372BF4FCB7004E4C1D /* OnBoardingView.swift in Sources */,
 				04D8A7592BF4B9B70082F4CD /* ContentView.swift in Sources */,
+				1814AAFE2C065844007D4933 /* Test.swift in Sources */,
 				180213982BEFFA91009CB2DE /* SoundViewModel.swift in Sources */,
 				189523C72BF3F94D00579D82 /* widgetExaple.swift in Sources */,
 				18326F662BED0AE700EB5C37 /* LocationTracker.swift in Sources */,
@@ -542,8 +546,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MissingStuff/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "تفقّد";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "we need use your location to send reminder notification";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "we need use your location to send reminder notification";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "we need use your location to send reminder notification";
@@ -556,7 +560,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = w.MissingStuff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -579,8 +583,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MissingStuff/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "";
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "تفقّد";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "we need use your location to send reminder notification";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "we need use your location to send reminder notification";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "we need use your location to send reminder notification";
@@ -593,7 +597,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = w.MissingStuff;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -669,7 +673,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		04D0B28C2BD4FAA000EA872D /* Build configuration list for PBXProject "MissingStuff" */ = {
+		04D0B28C2BD4FAA000EA872D /* Build configuration list for PBXProject "تفقّد" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				04D0B29D2BD4FAA100EA872D /* Debug */,
@@ -678,7 +682,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		04D0B29F2BD4FAA100EA872D /* Build configuration list for PBXNativeTarget "MissingStuff" */ = {
+		04D0B29F2BD4FAA100EA872D /* Build configuration list for PBXNativeTarget "تفقّد" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				04D0B2A02BD4FAA100EA872D /* Debug */,

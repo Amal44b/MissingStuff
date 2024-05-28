@@ -8,8 +8,10 @@
 import SwiftUI
 import SwiftData
 import CoreLocation
+import UserNotifications
 
 struct MainPage: View {
+    
     
     @Environment(\.modelContext) var modelContext
    
@@ -26,7 +28,7 @@ struct MainPage: View {
     
     
     @ObservedObject var locationManager = LocationManager()
-    @Query var locationQuery: [ListModel]
+//    @Query var locationQuery: [ListModel]
     
     @State private var isActiveEdit = false
     @State private var isAddingData = false
@@ -41,10 +43,10 @@ struct MainPage: View {
         }
     }
     var body: some View {
-        GeometryReader{_ in
+        GeometryReader{ geometry in
             NavigationStack{
                 ZStack{
-                    Color.ourBackground.ignoresSafeArea()
+//                    Color.ourBackground.ignoresSafeArea()
                     
                     List{
                         ForEach(filteredList) { subList in
@@ -117,7 +119,7 @@ struct MainPage: View {
                 }.navigationBarBackButtonHidden(true)
 //                    .navigationTitle("Main Page")
                 
-            }  .accentColor(.ourGreen)
+            } .ignoresSafeArea(.keyboard) .accentColor(.ourGreen)
                 .onAppear {
                     let locationManager1 = CLLocationManager()
                     locationManager1.requestWhenInUseAuthorization()
@@ -126,8 +128,10 @@ struct MainPage: View {
                     UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in
                         
                     }
-                    locationManager.sortLocations(listQuery: locationQuery)
-                }.ignoresSafeArea(.keyboard)
+                    locationManager.sortLocations(listQuery: listQuery)
+                }
+        
+        
         }
     func deleteItem(at offsets: IndexSet) {
            for offset in offsets {
@@ -135,6 +139,9 @@ struct MainPage: View {
                modelContext.delete(listitem)
            }
     }
+    
+    
+    
    
         }
    

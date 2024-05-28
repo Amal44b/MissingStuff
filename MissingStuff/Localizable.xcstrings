@@ -151,6 +151,16 @@
         }
       }
     },
+    "Done" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم"
+          }
+        }
+      }
+    },
     "Edit" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -328,6 +338,9 @@
         }
       }
     },
+    "Password" : {
+
+    },
     "Phone" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -461,6 +474,9 @@
     "User location: %@" : {
 
     },
+    "Username" : {
+
+    },
     "Wallet" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -493,6 +509,9 @@
           }
         }
       }
+    },
+    "تفقّد" : {
+
     }
   },
   "version" : "1.0"
