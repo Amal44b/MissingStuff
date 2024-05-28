@@ -41,6 +41,10 @@
 		189523D22BF40B6F00579D82 /* CheckList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B487462BDF78DD006598AD /* CheckList.swift */; };
 		189523D42BF40B7500579D82 /* CreateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B487482BDF791A006598AD /* CreateList.swift */; };
 		189523D52BF40B7900579D82 /* UpdateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F691632BE78C19008DBE5F /* UpdateList.swift */; };
+		18A038E92BF7A319001D9498 /* Check_en.wav in Resources */ = {isa = PBXBuildFile; fileRef = 18A038E82BF7A319001D9498 /* Check_en.wav */; };
+		18A038EA2BF7A319001D9498 /* Check_en.wav in Resources */ = {isa = PBXBuildFile; fileRef = 18A038E82BF7A319001D9498 /* Check_en.wav */; };
+		18A038EC2BF7A342001D9498 /* Check_ar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18A038EB2BF7A342001D9498 /* Check_ar.mp3 */; };
+		18A038ED2BF7A342001D9498 /* Check_ar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18A038EB2BF7A342001D9498 /* Check_ar.mp3 */; };
 		18B487452BDF78B7006598AD /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B487442BDF78B7006598AD /* MainPage.swift */; };
 		18B487472BDF78DD006598AD /* CheckList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B487462BDF78DD006598AD /* CheckList.swift */; };
 		18B487492BDF791A006598AD /* CreateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B487482BDF791A006598AD /* CreateList.swift */; };
@@ -102,6 +106,8 @@
 		189523BF2BF3F3D800579D82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		189523C62BF3F94D00579D82 /* widgetExaple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = widgetExaple.swift; sourceTree = "<group>"; };
 		189523C82BF4035500579D82 /* ListWidjetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ListWidjetExtension.entitlements; sourceTree = "<group>"; };
+		18A038E82BF7A319001D9498 /* Check_en.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Check_en.wav; sourceTree = "<group>"; };
+		18A038EB2BF7A342001D9498 /* Check_ar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Check_ar.mp3; sourceTree = "<group>"; };
 		18B487442BDF78B7006598AD /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		18B487462BDF78DD006598AD /* CheckList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckList.swift; sourceTree = "<group>"; };
 		18B487482BDF791A006598AD /* CreateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateList.swift; sourceTree = "<group>"; };
@@ -163,6 +169,8 @@
 				04D0B2942BD4FAA000EA872D /* MissingStuffApp.swift */,
 				29F6916A2BEB59B9008DBE5F /* Localizable.xcstrings */,
 				04D0B2982BD4FAA100EA872D /* Assets.xcassets */,
+				18A038E82BF7A319001D9498 /* Check_en.wav */,
+				18A038EB2BF7A342001D9498 /* Check_ar.mp3 */,
 				18F61D3D2BF0C42700C52699 /* CheckE.wav */,
 				18486B552BF1168900304E08 /* CheckA.wav */,
 				04D0B29A2BD4FAA100EA872D /* Preview Content */,
@@ -323,10 +331,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				04D0B29C2BD4FAA100EA872D /* Preview Assets.xcassets in Resources */,
+				18A038E92BF7A319001D9498 /* Check_en.wav in Resources */,
 				29F6916B2BEB59B9008DBE5F /* Localizable.xcstrings in Resources */,
 				18486B562BF1168900304E08 /* CheckA.wav in Resources */,
 				18F61D3E2BF0C42700C52699 /* CheckE.wav in Resources */,
 				04D0B2992BD4FAA100EA872D /* Assets.xcassets in Resources */,
+				18A038EC2BF7A342001D9498 /* Check_ar.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,10 +345,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				189523CC2BF40B4800579D82 /* Localizable.xcstrings in Resources */,
+				18A038EA2BF7A319001D9498 /* Check_en.wav in Resources */,
 				189523CE2BF40B4F00579D82 /* CheckE.wav in Resources */,
 				189523CF2BF40B5200579D82 /* CheckA.wav in Resources */,
 				189523BE2BF3F3D800579D82 /* Assets.xcassets in Resources */,
 				04D8A75A2BF4BC430082F4CD /* Assets.xcassets in Resources */,
+				18A038ED2BF7A342001D9498 /* Check_ar.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

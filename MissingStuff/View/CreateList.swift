@@ -15,7 +15,7 @@ import SwiftData
 
 struct CreateList: View {
     
-    @State var items = ["Keys" , "Wallet" , "Phone" , "Glasses" , "HeadPhons" , "Watchs"]
+    @State var items = [NSLocalizedString("Keys", comment: "") , NSLocalizedString("Wallet", comment: "") , NSLocalizedString("Phone", comment: "") , NSLocalizedString("Glasses", comment: "") , NSLocalizedString("HeadPhons", comment: "") , NSLocalizedString("Watchs", comment: "")]
     @State var showAlert = false
     @State var enteredItem = ""
     
